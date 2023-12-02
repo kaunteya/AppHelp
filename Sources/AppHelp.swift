@@ -21,7 +21,7 @@ public class AppHelp: NSObject, NSWindowDelegate {
         helpModel.scheme = scheme
     }
 
-    public func setTopics(_ topics: [HelpItem]) {
+    public func setTopics(_ topics: [HelpTopic]) {
         helpModel.items = topics
     }
 

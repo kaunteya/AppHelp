@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import Markdown
 
-public struct HelpItem: Identifiable {
+public struct HelpTopic: Identifiable {
     enum ViewType {
         case web(html: String)
         case view(AnyView)
@@ -48,7 +48,7 @@ public struct HelpItem: Identifiable {
             throw "Image url converstion failed"
         }
 
-        let htmlText = HelpItem.wrapInHtml(content: HTMLFormatter.format(updatedMarkup))
+        let htmlText = HelpTopic.wrapInHtml(content: HTMLFormatter.format(updatedMarkup))
         viewType = .web(html: htmlText)
     }
 

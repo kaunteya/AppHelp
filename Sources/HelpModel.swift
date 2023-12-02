@@ -8,7 +8,7 @@
 import Foundation
 
 class HelpModel: ObservableObject {
-    var items: [HelpItem]!
-    @Published var selectedTopic: HelpItem.ID?
+    var items: [HelpTopic]!
+    @Published var selectedTopic: HelpTopic.ID?
     var scheme: String?
 }
