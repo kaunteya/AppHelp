@@ -12,4 +12,9 @@ extension Document {
     var title: String? {
         (child(at: 0) as? Heading)?.plainText
     }
+
+    mutating func applyingLocalImageRewrite() {
+        var imageFixedMarkup = LocalImageRewriter()
+        self = imageFixedMarkup.visit(self) as! Document
+    }
 }

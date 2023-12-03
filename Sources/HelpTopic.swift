@@ -51,16 +51,12 @@ public struct HelpTopic: Identifiable {
               let markdownContent = try? String(contentsOfFile: path) else {
             fatalError("Failed to open markdown file")
         }
+        var documentMarkup = Document(parsing: markdownContent)
+        self.title = documentMarkup.title!
 
-        self.title = Document(parsing: markdownContent).title!
+        documentMarkup.applyingLocalImageRewrite()
 
-        print("Setting title \(self.title)")
-        var imageFixedMarkup = LocalImageRewriter()
-        guard let updatedMarkup = imageFixedMarkup.visit(documentMarkup) else {
-            fatalError("Image url converstion failed")
-        }
-
-        let htmlText = HelpTopic.wrapInHtml(content: HTMLFormatter.format(updatedMarkup))
+        let htmlText = HelpTopic.wrapInHtml(content: HTMLFormatter.format(documentMarkup))
         value = .web(html: htmlText)
     }
 
