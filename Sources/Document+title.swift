@@ -17,4 +17,14 @@ extension Document {
         var imageFixedMarkup = LocalImageRewriter()
         self = imageFixedMarkup.visit(self) as! Document
     }
+
+    init(fileName: String) {
+        guard let path = Bundle.main.path(forResource: fileName, ofType: "md"),
+              let markdownContent = try? String(contentsOfFile: path) else {
+            fatalError("Failed to open markdown file")
+        }
+        self.init(parsing: markdownContent)
+//        var documentMarkup = Document(parsing: markdownContent)
+
+    }
 }

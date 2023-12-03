@@ -47,11 +47,7 @@ public struct HelpTopic: Identifiable {
     public init(markdownFileName: String) {
         self.id = markdownFileName
 
-        guard let path = Bundle.main.path(forResource: markdownFileName, ofType: "md"),
-              let markdownContent = try? String(contentsOfFile: path) else {
-            fatalError("Failed to open markdown file")
-        }
-        var documentMarkup = Document(parsing: markdownContent)
+        var documentMarkup = Document(fileName: markdownFileName)
         self.title = documentMarkup.title!
 
         documentMarkup.applyingLocalImageRewrite()
