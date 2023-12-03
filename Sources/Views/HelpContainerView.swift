@@ -15,8 +15,20 @@ struct HelpContainerView: View {
         NavigationView {
             List(selection: $selectedTopic) {
                 ForEach(topics) { topic in
-                    NavigationLink(topic.title) {
-                        topic.view
+                    switch topic.value {
+                    case .group(let subTopics):
+                        Section(topic.title) {
+                            ForEach(subTopics) { topic in
+                                NavigationLink(topic.title) {
+                                    topic.view
+                                }
+
+                            }
+                        }
+                    case .view, .web:
+                        NavigationLink(topic.title) {
+                            topic.view
+                        }
                     }
                 }
             }
