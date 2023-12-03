@@ -13,14 +13,14 @@ import SwiftUI
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        AppHelp.shared.initialise(title: "Quick Note Help", scheme: "quicknote")
         
-        AppHelp.shared.setTopics([
-            try! .init(markdownFileName: "Everything"),
-            try! .init(markdownFileName: "DemoNote"),
-            try! .init(markdownFileName: "Big"),
-            .init(id: "contact", title: "Contact Us", view: AnyView(ContactView()))
-        ])
+        AppHelp.shared.initialise(title: "Quick Note Help", scheme: "quicknote") {
+            HelpTopic(markdownFileName: "Everything")
+            HelpTopic(markdownFileName: "Big")
+            HelpTopic(groupName: "Purchase", topics: [
+                HelpTopic(markdownFileName: "DemoNote")
+            ])
+        }
     }
 
     func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool {

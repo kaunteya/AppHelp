@@ -15,14 +15,12 @@ public class AppHelp: NSObject, NSWindowDelegate {
     private var windowTitle = ""
 
     private var window: NSWindow?
+    var items: (() -> [HelpTopic])!
 
-    public func initialise(title: String, scheme: String?) {
+    public func initialise(title: String, scheme: String?, @HelpBuilder _ topics: @escaping () -> [HelpTopic]) {
         windowTitle = title
         helpModel.scheme = scheme
-    }
-
-    public func setTopics(_ topics: [HelpTopic]) {
-        helpModel.items = topics
+        items = topics
     }
 
     func getWindow() -> NSWindow {
@@ -32,7 +30,7 @@ public class AppHelp: NSObject, NSWindowDelegate {
         let window = NSWindow(contentRect: .zero, styleMask: [.titled, .closable, .resizable, .fullSizeContentView], backing: .buffered, defer: false)
         window.delegate = self
         window.isReleasedWhenClosed = false
-        let helpView = HelpContainerView().environmentObject(helpModel)
+        let helpView = HelpContainerView(topics: items()).environmentObject(helpModel)
         window.contentViewController = NSHostingController(rootView: helpView)
         window.title = windowTitle
         window.center()
@@ -42,8 +40,6 @@ public class AppHelp: NSObject, NSWindowDelegate {
     public func showWindow(selected: String? = nil) {
         helpModel.selectedTopic = selected
         window = getWindow()
-        let helpView = HelpContainerView().environmentObject(helpModel)
-        window?.contentViewController = NSHostingController(rootView: helpView)
         window?.makeKeyAndOrderFront(nil)
     }
 

@@ -10,46 +10,58 @@ import SwiftUI
 import Markdown
 
 public struct HelpTopic: Identifiable {
-    enum ViewType {
+    enum Value {
         case web(html: String)
         case view(AnyView)
+        case group([HelpTopic])
     }
     public typealias ID = String
     
     public var id: ID
     var title: String
-    let viewType: ViewType
+    let value: Value
 
     @ViewBuilder
     var view: some View {
-        switch viewType {
+        switch value {
         case .web(let html):
             DetailWebView(htmlText: html)
         case .view(let v):
             v
+        case .group: EmptyView()
         }
     }
     
     public init(id: String, title: String, view: AnyView) {
         self.id = id
         self.title = title
-        self.viewType = .view(view)
+        self.value = .view(view)
     }
 
-    public init(markdownFileName: String) throws {
+    public init(groupName: String, topics: [HelpTopic]) {
+        self.id = groupName
+        self.title = groupName
+        self.value = .group(topics)
+    }
+
+    public init(markdownFileName: String) {
         self.id = markdownFileName
 
-        let markdownContent = try String(contentsOfFile: Bundle.main.path(forResource: markdownFileName, ofType: "md")!)
+        guard let path = Bundle.main.path(forResource: markdownFileName, ofType: "md"),
+              let markdownContent = try? String(contentsOfFile: path) else {
+            fatalError("Failed to open markdown file")
+        }
         let documentMarkup = Document(parsing: markdownContent)
         self.title = documentMarkup.title!
 
+        print("Setting title \(self.title)")
         var imageFixedMarkup = LocalImageRewriter()
         guard let updatedMarkup = imageFixedMarkup.visit(documentMarkup) else {
-            throw "Image url converstion failed"
+            fatalError("Image url converstion failed")
         }
 
         let htmlText = HelpTopic.wrapInHtml(content: HTMLFormatter.format(updatedMarkup))
-        viewType = .web(html: htmlText)
+        value = .web(html: htmlText)
     }
 
     private static func wrapInHtml(content: String) -> String {
@@ -71,5 +83,3 @@ fileprivate extension Document {
         (child(at: 0) as? Heading)?.plainText
     }
 }
-
-
