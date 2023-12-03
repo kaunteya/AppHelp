@@ -16,8 +16,8 @@ public struct HelpBuilder {
         [components]
     }
 
-    static func buildBlock(_ components: HelpTopic...) -> [HelpTopic] {
-        components
+    static func buildBlock(_ components: HelpTopicConvertible...) -> [HelpTopic] {
+        components.flatMap { $0.asHelpTopic() }
     }
 
     static func buildArray(_ components: [HelpTopic]) -> [HelpTopic] {

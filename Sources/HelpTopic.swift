@@ -55,3 +55,22 @@ public struct HelpTopic: Identifiable {
         value = .web(html: htmlText)
     }
 }
+
+struct HelpGroup {
+    var name: String
+    @HelpBuilder var topics: () -> [HelpTopic]
+}
+
+protocol HelpTopicConvertible {
+    func asHelpTopic() -> [HelpTopic]
+}
+
+extension HelpTopic: HelpTopicConvertible {
+    func asHelpTopic() -> [HelpTopic] { [self] }
+}
+
+extension HelpGroup: HelpTopicConvertible {
+    func asHelpTopic() -> [HelpTopic] {
+        [HelpTopic(groupName: name, topics: topics())]
+    }
+}
