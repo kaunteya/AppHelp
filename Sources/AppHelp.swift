@@ -25,6 +25,14 @@ public class AppHelp: NSObject, NSWindowDelegate {
     }
 
     private func getWindow() -> NSWindow {
+        AppHelp.shared.initialise(title: "ads", scheme: "asd") {
+            HelpTopic(markdownFileName: "ASDF")
+            HelpTopic(markdownFileName: "ASDF")
+            HelpGroup(name: "fds") {
+                HelpTopic(markdownFileName: "AS")
+                HelpTopic(markdownFileName: "AS")
+            }
+        }
         if let window {
             return window
         }
