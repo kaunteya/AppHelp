@@ -51,8 +51,8 @@ public struct HelpTopic: Identifiable {
               let markdownContent = try? String(contentsOfFile: path) else {
             fatalError("Failed to open markdown file")
         }
-        let documentMarkup = Document(parsing: markdownContent)
-        self.title = documentMarkup.title!
+
+        self.title = Document(parsing: markdownContent).title!
 
         print("Setting title \(self.title)")
         var imageFixedMarkup = LocalImageRewriter()
