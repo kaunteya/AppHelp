@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct HelpContainerView: View {
-    @EnvironmentObject private var model: HelpModel
 
+    @State var selectedTopic: HelpTopic.ID?
     let topics: [HelpTopic]
     var body: some View {
         NavigationView {
-            List(selection: $model.selectedTopic) {
+            List(selection: $selectedTopic) {
                 ForEach(topics) { topic in
                     NavigationLink(topic.title) {
                         topic.view

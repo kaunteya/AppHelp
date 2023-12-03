@@ -16,8 +16,7 @@ class ViewController: NSViewController {
     }
     
     @IBAction func formatedHelpbutton(_ sender: Any) {
-//        AppHelp.shared.showWindow(selected: .formattingText)
-//        AppHelp.shared.open(anchor: HelpTopic.formattingText.id)
+        AppHelp.shared.showWindow(selected: "Big")
     }
 }
 

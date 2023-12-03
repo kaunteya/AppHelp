@@ -13,7 +13,7 @@ struct LocalImageRewriter: MarkupRewriter {
 
     /// Converts quicknote://<image-name> to URL based on location in bundle
     func visitImage(_ image: Markdown.Image) -> Markup? {
-        if let source = image.source, let component = URLComponents(string: source), component.scheme == AppHelp.shared.helpModel.scheme {
+        if let source = image.source, let component = URLComponents(string: source), component.scheme == AppHelp.shared.scheme {
             if let imageName = component.host {
                 let img = NSImage(named: .init(imageName))
                 let imgData = img!.pngData
