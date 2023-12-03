@@ -58,12 +58,12 @@ public struct HelpTopic: Identifiable {
 
 public struct HelpGroup {
     var name: String
-    @HelpBuilder var topics: () -> [HelpTopic]
+    var topics: [HelpTopic]
 
-//    public init(name: String, topics: @escaping () -> [HelpTopic]) {
-//        self.name = name
-//        self.topics = topics
-//    }
+    public init(name: String, @HelpBuilder topics: () -> [HelpTopic]) {
+        self.name = name
+        self.topics = topics()
+    }
 }
 
 public protocol HelpTopicConvertible {
@@ -76,6 +76,6 @@ extension HelpTopic: HelpTopicConvertible {
 
 extension HelpGroup: HelpTopicConvertible {
     public func asHelpTopic() -> [HelpTopic] {
-        [HelpTopic(groupName: name, topics: topics())]
+        [HelpTopic(groupName: name, topics: topics)]
     }
 }
