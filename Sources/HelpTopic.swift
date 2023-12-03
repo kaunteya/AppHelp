@@ -60,7 +60,7 @@ public struct HelpGroup {
     var name: String
     var topics: [HelpTopic]
 
-    public init(name: String, @HelpBuilder topics: () -> [HelpTopic]) {
+    public init(_ name: String, @HelpBuilder topics: () -> [HelpTopic]) {
         self.name = name
         self.topics = topics()
     }
