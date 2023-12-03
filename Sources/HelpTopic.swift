@@ -77,9 +77,3 @@ public struct HelpTopic: Identifiable {
 """
     }
 }
-
-fileprivate extension Document {
-    var title: String? {
-        (child(at: 0) as? Heading)?.plainText
-    }
-}
