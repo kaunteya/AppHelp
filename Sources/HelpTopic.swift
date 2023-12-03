@@ -48,7 +48,9 @@ public struct HelpTopic: Identifiable {
         self.id = markdownFileName
 
         var documentMarkup = Document(fileName: markdownFileName)
-        self.title = documentMarkup.title!
+
+        print(documentMarkup.debugDescription())
+        self.title = documentMarkup.topicInfo?.title ?? documentMarkup.firstHeading ?? "TITLE UNAVAILABLE"
 
         documentMarkup.applyingLocalImageRewrite()
         @HTMLWrapper var htmlText = HTMLFormatter.format(documentMarkup)

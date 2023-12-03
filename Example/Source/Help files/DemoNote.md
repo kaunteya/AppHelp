@@ -1,3 +1,5 @@
+<!-- Title: Welcome to Quick Note -->
+
 # Welcome to Quick Note
 This demo note is created to demonstrate the text features supported by Quick Note
 

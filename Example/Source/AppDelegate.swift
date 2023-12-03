@@ -16,6 +16,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         AppHelp.shared.initialise(title: "Quick Note Help", scheme: "quicknote") {
             HelpTopic(markdownFileName: "Everything")
+            HelpTopic(markdownFileName: "DemoNote")
             HelpTopic(markdownFileName: "Big")
             HelpGroup("Purchase") {
                 HelpTopic(id: "contact", title: "Contact Us", view: AnyView(ContactView()))
