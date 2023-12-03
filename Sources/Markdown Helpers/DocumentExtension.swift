@@ -24,7 +24,5 @@ extension Document {
             fatalError("Failed to open markdown file")
         }
         self.init(parsing: markdownContent)
-//        var documentMarkup = Document(parsing: markdownContent)
-
     }
 }

@@ -51,21 +51,7 @@ public struct HelpTopic: Identifiable {
         self.title = documentMarkup.title!
 
         documentMarkup.applyingLocalImageRewrite()
-
-        let htmlText = HelpTopic.wrapInHtml(content: HTMLFormatter.format(documentMarkup))
+        @HTMLWrapper var htmlText = HTMLFormatter.format(documentMarkup)
         value = .web(html: htmlText)
-    }
-
-    private static func wrapInHtml(content: String) -> String {
-        let cssPath = Bundle.module.path(forResource: "style", ofType: "css")!
-        let css = try! String(contentsOfFile: cssPath).trimmingCharacters(in: .whitespacesAndNewlines)
-
-        return """
-<!DOCTYPE html>
-<html>
-    <head><style>\(css)</style></head>
-    <body>\(content)</body>
-</html>
-"""
     }
 }
