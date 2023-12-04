@@ -16,7 +16,12 @@ extension Document {
     }
 
     var firstHeading: String? {
-        (child(at: 0) as? Heading)?.plainText
+        for i in 0..<childCount {
+            if let h = (child(at: i) as? Heading) {
+                return h.plainText
+            }
+        }
+        return nil
     }
 
     var topicInfo: TopicInfo? {
@@ -51,7 +56,7 @@ extension Document {
     init(fileName: String) {
         guard let path = Bundle.main.path(forResource: fileName, ofType: "md"),
               let markdownContent = try? String(contentsOfFile: path) else {
-            fatalError("Failed to open markdown file")
+            fatalError("Failed to open markdown file \(fileName). The name should be an exact match with the file name")
         }
         self.init(parsing: markdownContent)
     }
