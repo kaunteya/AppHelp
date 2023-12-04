@@ -2,6 +2,7 @@
 	font: 13px/1.6 -apple-system, sans-serif;
 	color: -apple-system-label;
 }
+
 body {
 	margin: 1rem 2rem;
 }
@@ -9,9 +10,11 @@ body {
 a {
 	text-decoration: none;
 }
+
 a:link, a:visited {
 	color: -apple-system-blue;
 }
+
 a:hover {
 	text-decoration: underline;
 }
@@ -19,15 +22,6 @@ a:hover {
 img {
 	max-width: 80%;
     max-height: 300px;
-}
-
-kbd {
-	font-family: -apple-system, sans-serif;
-	padding: 0 0.2em;
-	margin: 0 0.1em;
-	border-radius: 0.2em;
-	border: 1px solid -apple-system-quaternary-label;
-	box-shadow: 0 1px 0 hsla(0, 0%, 0%, .04);
 }
 
 :not(h1) > code {
@@ -38,13 +32,6 @@ kbd {
 	border-radius: 2px;
 	padding: 0 0.2em;
 }
-code.AppleScript {
-	color: hsl(230, 67%, 45%);
-}
-pre code {
-	background: transparent;
-	border: none;
-}
 
 body > h1 {
 	font-family: -apple-system-headline, sans-serif;
@@ -53,62 +40,42 @@ body > h1 {
 	font-weight: 400;
 	margin: 2.5rem 0 1.5rem;
 }
+
 h2 {
 	font-size: 1.3rem;
 	font-weight: 600;
 	line-height: 1.1;
 	letter-spacing: 0.02em;
-	margin-top: 1rem;
-	margin-bottom: 1rem;
+	margin-top: 1.5rem;
+	margin-bottom: 0.3rem;
 	clear: both;
 }
-:not(h1) + h2 {
-	border-top: 1px solid -apple-system-separator;
-	padding-top: 1rem;
-}
+
 h3 {
     font-size: 1.1rem;
 	font-weight: 600;
 	line-height: 1.1;
-	margin-top: 1rem;
-}
-h4 {
-	margin-bottom: 0;
-}
-h4 + * {
-	margin-top: 0;
+	margin-top: 1.2rem;
+    margin-bottom: 0.3rem;
 }
 
-article+article {
-	margin: 2rem 0;
-	border-top: 1px solid -apple-system-separator;
-}
-
-p, li {
+p {
 	text-align: justify;
+    margin: 3px 0px;
 }
 
-figure {
-	margin: 0;
+li {
+    text-align: justify;
 }
 
-ol,
-ul,
-pre {
+ol, ul, pre {
 	margin: 0.5rem 0;
 	clear: both;
 }
+
 pre {
 	font-family: 'Courier', 'Courier New', monospace;
 	margin-left: 1rem;
-}
-pre.source {
-	background: hsl(0, 0%, 98%);
-	border: 1px solid -apple-system-tertiary-label;
-	border-radius: 3px;
-	max-width: 50rem;
-	padding: 0.2rem 0.5rem;
-	overflow: scroll;
 }
 
 ul {
@@ -126,149 +93,9 @@ ul ol {
 	border: none;
 }
 
-ul + ul,
-ol + ol,
-ul + ol,
-ol + ul {
-	margin-top: 1rem;
-}
-
-table ul li {
-	margin-bottom: 0.2em;
-}
-#cf {
-	margin-top: 3rem;
-}
-#cf h2 {
-	font-size: 100%;
-	font-weight: 600;
-	margin-bottom: 0.5rem;
-}
-#cf ul {
-	list-style-type: none;
-	padding: 0;
-	margin: 0;
-	border: none;
-}
-
-.na {
-	color: -apple-system-tertiary-label;
-}
-p.addition {
-	position: relative;
-	text-indent: 0;
-	padding: 0.3rem 0.6rem;
-	border-radius: 0.5rem;
-	background: hsl(213, 50%, 97%);
-}
-p.addition::after {
-	content: '';
-	position: absolute;
-	top: -1.8rem;
-	left: 4rem;
-	margin-left: -1rem;
-	border: 1rem solid transparent;
-	border-bottom: 15px solid hsl(213, 50%, 97%);
-}
-p.addition > span:first-child {
-	color: hsl(201, 25%, 55%);
-}
-@media (prefers-color-scheme: dark) {
-	p.addition {
-		background: hsl(213, 30%, 20%);
-	}
-	p.addition::after {
-		border-bottom-color: hsl(213, 30%, 20%);
-	}
-}
-
 em, strong {
 	font-weight: 600;
 	font-style: normal;
-}
-
-img.bordered {
-	border: 0.5px solid -apple-system-tertiary-label;
-	border-radius: 3px;
-}
-
-dt {
-	font-weight: 600;
-}
-dd {
-	margin-left: 2rem;
-}
-dd + dt {
-	margin-top: 0.5rem;
-}
-dd + dd dl {
-	margin-top: 0.5rem;
-}
-
-table {
-	font-size: 100%;
-	border-collapse: collapse;
-	empty-cells: show;
-	margin: 1rem 0;
-}
-table caption {
-	font-weight: 500;
-	text-align: left;
-	margin: 0.4rem 0;
-}
-th,
-td {
-	line-height: 1.6;
-	border-bottom: 1px solid -apple-system-quaternary-label;
-	margin: 0;
-	padding: 0.5rem 0.6rem;
-}
-table tr > :first-child {
-	padding-left: 0;
-}
-table tr > :last-child {
-	padding-right: 0;
-}
-table thead tr th {
-	font-weight: 600;
-	text-align: left;
-}
-table thead tr:first-child > * {
-	border-top: 2px solid -apple-system-quaternary-label;
-}
-th {
-	font-weight: normal;
-	white-space: nowrap;
-}
-th code {
-	border: none;
-	background: none;
-}
-tbody th:first-child {
-	text-align: left;
-	vertical-align: top;
-}
-td > :last-child {
-	margin-bottom: 0;
-}
-
-
-/* syntax highlight */
-
-span.comment {
-	color: hsl(0, 40%, 40%);
-}
-span.keyword {
-	color: hsl(210, 50%, 40%);
-}
-span.string {
-	color: hsl(0, 0%, 50%);
-}
-span.invisible {
-	opacity: 0.4;
-}
-span.variable {
-	font-style: italic;
 }
 
 
@@ -288,32 +115,4 @@ span.variable {
 	code.AppleScript {
 		color: hsl(230, 50%, 60%);
 	}
-}
-
-
-/* settings */
-
-p img.appicon {
-	vertical-align: text-bottom;
-}
-
-table.settings th {
-	width: 18em;
-	white-space: normal;
-}
-table.settings tbody {
-	font-size: 95%;
-}
-table.settings td dl > * {
-	margin-left: 0;
-}
-table.settings td ul {
-	padding-left: 1.5rem;
-}
-table.settings td ul li strong {
-	font-weight: 400;
-	font-style: italic;
-}
-table.settings td ul li strong:lang(ja) {
-	font-style: normal;
 }
