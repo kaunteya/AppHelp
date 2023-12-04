@@ -18,7 +18,7 @@ public class AppHelp: NSObject, NSWindowDelegate {
     var topics: (() -> [HelpTopic])!
     var scheme: String?
 
-    public func initialise(title: String, scheme: String?, @HelpBuilder _ topics: @escaping () -> [HelpTopic]) {
+    public func initialise(title: String, scheme: String?, @HelpBuilder topics: @escaping () -> [HelpTopic]) {
         windowTitle = title
         self.scheme = scheme
         self.topics = topics
