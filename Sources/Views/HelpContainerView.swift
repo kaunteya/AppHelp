@@ -19,10 +19,9 @@ struct HelpContainerView: View {
                     case .group(let subTopics):
                         Section(topic.title) {
                             ForEach(subTopics) { topic in
-                                NavigationLink(topic.title) {
+                                NavigationLink("    " + topic.title) {
                                     topic.view
                                 }
-
                             }
                         }
                     case .view, .web:
