@@ -50,5 +50,3 @@ public class AppHelp: NSObject, NSWindowDelegate {
         }
     }
 }
-
-extension String: LocalizedError {}
