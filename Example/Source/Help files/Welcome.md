@@ -1,4 +1,5 @@
 <!-- Title: Welcome to Quick Note -->
+<!-- id: welcome -->
 
 # Welcome to Quick Note
 This demo note is created to demonstrate the text features supported by Quick Note
@@ -7,7 +8,7 @@ This demo note is created to demonstrate the text features supported by Quick No
 Quick Note supports basic markdown like **bold** and *italics*
 It also supports `code` format
 
-![Minion](quicknote://menu-editor)
+![Minion](mygreatapp://menu-editor)
 
 ## Float on top and Translucency
 You can choose to keep the notes always **on top**. This feature can be made permanent from Preference.

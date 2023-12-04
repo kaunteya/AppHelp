@@ -45,13 +45,12 @@ public struct HelpTopic: Identifiable {
     }
 
     public init(markdownFileName: String) {
-        self.id = markdownFileName
-
         var documentMarkup = Document(fileName: markdownFileName)
-
-        print(documentMarkup.debugDescription())
-        self.title = documentMarkup.topicInfo?.title ?? documentMarkup.firstHeading ?? "TITLE UNAVAILABLE"
-
+        guard let topicInfo = documentMarkup.topicInfo else {
+            fatalError("Please set appropriate headers in markdown file")
+        }
+        self.id = topicInfo.id
+        self.title = topicInfo.title ?? documentMarkup.firstHeading ?? "TITLE UNAVAILABLE"
         documentMarkup.applyingLocalImageRewrite()
         @HTMLWrapper var htmlText = HTMLFormatter.format(documentMarkup)
         value = .web(html: htmlText)

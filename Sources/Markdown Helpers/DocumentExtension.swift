@@ -10,7 +10,8 @@ import Markdown
 
 extension Document {
     struct TopicInfo {
-        let title: String
+        let id: String
+        let title: String?
         let keywords: [String]
     }
 
@@ -19,6 +20,7 @@ extension Document {
     }
 
     var topicInfo: TopicInfo? {
+        var id: String?
         var title: String?
         var keywords = [String]()
 
@@ -28,13 +30,15 @@ extension Document {
                     title = v
                 } else if k.lowercased() == "keywords" {
                     keywords = v.components(separatedBy: ",").map { String($0) }
+                } else if k.lowercased() == "id" {
+                    id = v
                 }
             } else {
                 break
             }
         }
-        if let title {
-            return TopicInfo(title: title, keywords: keywords)
+        if let id {
+            return TopicInfo(id: id, title: title, keywords: keywords)
         }
         return nil
     }

@@ -12,7 +12,7 @@
 		E3064C542B0DDD810017D0A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3064C532B0DDD810017D0A0 /* Assets.xcassets */; };
 		E3064C572B0DDD810017D0A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3064C552B0DDD810017D0A0 /* Main.storyboard */; };
 		E332D5C22B188DF4009B5DF4 /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E332D5C12B188DF4009B5DF4 /* ContactView.swift */; };
-		E3361ACD2B15D71E003A0EF0 /* DemoNote.md in Resources */ = {isa = PBXBuildFile; fileRef = E3361ACA2B15D573003A0EF0 /* DemoNote.md */; };
+		E3361ACD2B15D71E003A0EF0 /* Welcome.md in Resources */ = {isa = PBXBuildFile; fileRef = E3361ACA2B15D573003A0EF0 /* Welcome.md */; };
 		E3361ACE2B15D721003A0EF0 /* Everything.md in Resources */ = {isa = PBXBuildFile; fileRef = E3361AC32B15B777003A0EF0 /* Everything.md */; };
 		E3361ACF2B15D724003A0EF0 /* Big.md in Resources */ = {isa = PBXBuildFile; fileRef = E3361ACB2B15D5B2003A0EF0 /* Big.md */; };
 		E378C97A2B19F5A900F47445 /* AppHelp in Frameworks */ = {isa = PBXBuildFile; productRef = E378C9792B19F5A900F47445 /* AppHelp */; };
@@ -28,7 +28,7 @@
 		E3064C722B0E19610017D0A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E332D5C12B188DF4009B5DF4 /* ContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactView.swift; sourceTree = "<group>"; };
 		E3361AC32B15B777003A0EF0 /* Everything.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Everything.md; sourceTree = "<group>"; };
-		E3361ACA2B15D573003A0EF0 /* DemoNote.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = DemoNote.md; sourceTree = "<group>"; };
+		E3361ACA2B15D573003A0EF0 /* Welcome.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Welcome.md; sourceTree = "<group>"; };
 		E3361ACB2B15D5B2003A0EF0 /* Big.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Big.md; sourceTree = "<group>"; };
 		E378C9782B19F59800F47445 /* AppHelp */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AppHelp; path = ..; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,7 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				E3361AC32B15B777003A0EF0 /* Everything.md */,
-				E3361ACA2B15D573003A0EF0 /* DemoNote.md */,
+				E3361ACA2B15D573003A0EF0 /* Welcome.md */,
 				E3361ACB2B15D5B2003A0EF0 /* Big.md */,
 				E332D5C12B188DF4009B5DF4 /* ContactView.swift */,
 			);
@@ -158,7 +158,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3361ACD2B15D71E003A0EF0 /* DemoNote.md in Resources */,
+				E3361ACD2B15D71E003A0EF0 /* Welcome.md in Resources */,
 				E3064C542B0DDD810017D0A0 /* Assets.xcassets in Resources */,
 				E3361ACF2B15D724003A0EF0 /* Big.md in Resources */,
 				E3064C572B0DDD810017D0A0 /* Main.storyboard in Resources */,

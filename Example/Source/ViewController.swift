@@ -12,7 +12,7 @@ class ViewController: NSViewController {
 
 
     @IBAction func btnpress(_ sender: Any) {
-        AppHelp.shared.showWindow(selected: "Everything")
+        AppHelp.shared.showWindow(selected: "welcome")
     }
     
     @IBAction func formatedHelpbutton(_ sender: Any) {

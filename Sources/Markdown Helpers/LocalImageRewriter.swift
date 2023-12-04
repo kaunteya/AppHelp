@@ -8,11 +8,12 @@
 import Cocoa
 import Markdown
 
-/// Takes image quicknote://image-name and converts it to base64 png data
+/// Takes image scheme://image-name and converts it to base64 png data
 struct LocalImageRewriter: MarkupRewriter {
 
-    /// Converts quicknote://<image-name> to URL based on location in bundle
+    /// Converts scheme://<image-name> to URL based on location in bundle
     func visitImage(_ image: Markdown.Image) -> Markup? {
+        print("Image \(image.source)")
         if let source = image.source, let component = URLComponents(string: source), component.scheme == AppHelp.shared.scheme {
             if let imageName = component.host {
                 let img = NSImage(named: .init(imageName))
