@@ -35,6 +35,6 @@ struct HelpContainerView: View {
             .listStyle(.sidebar)
             .frame(minWidth: 200)
         }
-        .frame(minWidth: 700, minHeight: 500)
+        .frame(minWidth: 900, minHeight: 600)
     }
 }

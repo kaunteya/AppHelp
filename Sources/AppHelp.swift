@@ -32,15 +32,18 @@ public class AppHelp: NSObject, NSWindowDelegate {
         window.delegate = self
         window.isReleasedWhenClosed = false
         window.title = windowTitle
-        window.center()
         return window
     }
 
     public func showWindow(selected: String? = nil) {
+        let wasWindowNil = window == nil
         window = getWindow()
 
         let helpView = HelpContainerView(selectedTopic: selected, topics: topics())
         window!.contentViewController = NSHostingController(rootView: helpView)
+        if wasWindowNil {
+            window?.center()
+        }
         window?.makeKeyAndOrderFront(nil)
     }
 
