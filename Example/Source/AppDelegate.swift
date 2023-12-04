@@ -39,11 +39,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         AppHelp.shared.initialise(title: "Example app Help", scheme: "mygreatapp") {
             HelpTopic(markdownFileName: "Welcome")
             HelpTopic(markdownFileName: "Everything")
-            HelpTopic(markdownFileName: "Big")
             HelpGroup("Purchase") {
                 HelpTopic(id: "contact", title: "Contact Us", view: AnyView(ContactView()))
-                HelpTopic(id: "contact1", title: "Contact Us", view: AnyView(ContactView()))
             }
+            HelpTopic(markdownFileName: "Formatting")
         }
     }
 

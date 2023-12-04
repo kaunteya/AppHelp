@@ -8,6 +8,8 @@ This demo note is created to demonstrate the text features supported by Quick No
 Quick Note supports basic markdown like **bold** and *italics*
 It also supports `code` format
 
+[Contact us](mygreatapp://help/contact)
+
 ![Minion](mygreatapp://menu-editor)
 
 ## Float on top and Translucency

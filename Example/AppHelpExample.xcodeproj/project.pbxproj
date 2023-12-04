@@ -80,8 +80,8 @@
 		E3361ACC2B15D5C1003A0EF0 /* Help files */ = {
 			isa = PBXGroup;
 			children = (
-				E3361AC32B15B777003A0EF0 /* Everything.md */,
 				E3361ACA2B15D573003A0EF0 /* Welcome.md */,
+				E3361AC32B15B777003A0EF0 /* Everything.md */,
 				E3361ACB2B15D5B2003A0EF0 /* Formatting.md */,
 				E332D5C12B188DF4009B5DF4 /* ContactView.swift */,
 			);
