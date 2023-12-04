@@ -45,14 +45,24 @@ public struct HelpTopic: Identifiable {
     }
 
     public init(markdownFileName: String) {
-        var documentMarkup = Document(fileName: markdownFileName)
-        guard let topicInfo = documentMarkup.topicInfo else {
+        self.init(markupDocument: .init(fileName: markdownFileName))
+    }
+
+        // public
+    init(markdownContent: String) {
+        self.init(markupDocument: .init(parsing: markdownContent))
+    }
+
+        // public
+    init(markupDocument: Document) {
+        var document = markupDocument
+        guard let topicInfo = document.topicInfo else {
             fatalError("Please set appropriate headers in markdown file")
         }
         self.id = topicInfo.id
-        self.title = topicInfo.title ?? documentMarkup.firstHeading ?? "TITLE UNAVAILABLE"
-        documentMarkup.applyingLocalImageRewrite()
-        @HTMLWrapper var htmlText = HTMLFormatter.format(documentMarkup)
+        self.title = topicInfo.title ?? document.firstHeading ?? "TITLE UNAVAILABLE"
+        document.applyingLocalImageRewrite()
+        @HTMLWrapper var htmlText = HTMLFormatter.format(document)
         value = .web(html: htmlText)
     }
 }
